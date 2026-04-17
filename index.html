@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Satya Physiotherapy Clinic</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+
+body{
+font-family:Poppins,sans-serif;
+background:#0f2027;
+color:#fff;
+overflow-x:hidden;
+}
+
+/* PARTICLE BACKGROUND */
+canvas{
+position:fixed;
+top:0;
+left:0;
+z-index:-1;
+}
+
+/* NAV */
+nav{
+position:fixed;width:100%;top:0;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(10px);
+padding:15px;
+text-align:center;
+z-index:1000;
+}
+nav a{
+color:#fff;margin:0 15px;
+text-decoration:none;font-weight:600;
+transition:0.3s;
+}
+nav a:hover{color:#00c6ff}
+
+/* HERO */
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+.hero h1{
+font-size:3.5rem;
+background:linear-gradient(90deg,#00c6ff,#0072ff);
+-webkit-background-clip:text;
+color:transparent;
+}
+
+.typing{
+font-size:1.3rem;
+margin-top:10px;
+height:30px;
+}
+
+/* BUTTON */
+.btn{
+padding:12px 25px;
+border-radius:30px;
+margin:10px;
+text-decoration:none;
+color:#fff;
+background:linear-gradient(90deg,#ff7a18,#ffb347);
+transition:0.3s;
+}
+.btn:hover{
+transform:scale(1.1);
+box-shadow:0 0 20px orange;
+}
+
+/* SECTION */
+section{
+padding:100px 20px;
+text-align:center;
+opacity:0;
+transform:translateY(60px);
+transition:1s;
+}
+section.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* GLASS CARD */
+.card{
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(10px);
+padding:20px;
+border-radius:15px;
+transition:0.4s;
+}
+.card:hover{
+transform:translateY(-15px) scale(1.05);
+box-shadow:0 0 25px rgba(0,198,255,0.5);
+}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+/* FLOAT */
+.float{
+position:fixed;
+bottom:20px;
+right:20px;
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+.float a{
+width:55px;height:55px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+color:#fff;
+font-size:20px;
+animation:pulse 2s infinite;
+}
+.call{background:#28a745}
+.whatsapp{background:#25D366}
+
+@keyframes pulse{
+0%{transform:scale(1)}
+50%{transform:scale(1.15)}
+100%{transform:scale(1)}
+}
+
+/* FOOTER */
+footer{
+background:#000;
+padding:40px;
+text-align:center;
+}
+
+/* INPUT */
+input,textarea{
+width:90%;
+padding:10px;
+margin:10px;
+border-radius:10px;
+border:none;
+}
+
+/* FADE DELAY */
+.delay{transition-delay:0.3s}
+.delay2{transition-delay:0.6s}
+
+</style>
+</head>
+
+<body>
+
+<canvas id="bg"></canvas>
+
+<!-- NAV -->
+<nav>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#doctor">Doctor</a>
+<a href="#services">Services</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+<h1>Satya Physiotherapy Clinic</h1>
+<div class="typing" id="typing"></div>
+
+<a href="https://wa.me/917020084215" class="btn">Book on WhatsApp</a>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+<h2>About Clinic</h2>
+<p>
+Satya Physiotherapy Clinic in Dombivli is dedicated to restoring movement,
+reducing pain, and helping patients regain a healthy and active lifestyle.
+Using modern techniques and personalized care plans, the clinic focuses on
+long-term recovery rather than temporary relief.
+</p>
+</section>
+
+<!-- DOCTOR -->
+<section id="doctor">
+<h2>About Dr. Sayali Khare</h2>
+
+<div class="card">
+<p>
+Dr. Sayali Khare is a highly skilled and experienced physiotherapist based in
+Dombivli, Maharashtra. She specializes in treating joint pain, muscle injuries,
+post-surgery rehabilitation, and sports injuries.
+
+With a patient-first approach, Dr. Khare carefully analyzes each case and
+designs customized treatment plans that ensure faster recovery and long-term
+results. Her calm nature and professional expertise make patients feel
+comfortable and confident during their treatment journey.
+
+She is known for:
+✔ Accurate diagnosis  
+✔ Modern physiotherapy techniques  
+✔ Friendly and supportive care  
+✔ Effective home exercise guidance  
+
+Her mission is simple — help every patient move pain-free and live better.
+</p>
+</div>
+
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+<h2>Our Services</h2>
+
+<div class="grid">
+<div class="card">Physical Therapy</div>
+<div class="card delay">Joint Pain Treatment</div>
+<div class="card delay2">Rehabilitation</div>
+<div class="card">Sports Injury Recovery</div>
+<div class="card delay">Home Visits</div>
+</div>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<h2>Contact Us</h2>
+
+<p>📞 9769617209</p>
+<p>🟢 7020084215</p>
+
+<input type="text" id="name" placeholder="Your Name">
+<input type="tel" id="phone" placeholder="Phone">
+<textarea id="problem" placeholder="Your Problem"></textarea>
+
+<br>
+<button onclick="sendToWhatsApp()" class="btn">
+Send on WhatsApp
+</button>
+
+</section>
+
+<!-- FLOAT -->
+<div class="float">
+<a href="tel:+919769617209" class="call">📞</a>
+<a href="https://wa.me/917020084215" class="whatsapp">🟢</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+<h3>Satya Physiotherapy Clinic</h3>
+<p>
+📍 Vishnu Nagar, Dombivli West<br>
+⏰ Mon–Sat | 9 AM – 9 PM
+</p>
+</footer>
+
+<script>
+
+/* TYPING EFFECT */
+let text = ["Move Better.", "Live Pain Free.", "Recover Faster."];
+let i=0,j=0,current="";
+let typing=document.getElementById("typing");
+
+function type(){
+if(j<text[i].length){
+current+=text[i][j];
+typing.innerHTML=current;
+j++;
+setTimeout(type,80);
+}else{
+setTimeout(()=>{
+current="";j=0;i=(i+1)%text.length;
+type();
+},1500);
+}
+}
+type();
+
+/* SCROLL ANIMATION */
+let sections=document.querySelectorAll("section");
+
+window.addEventListener("scroll",()=>{
+sections.forEach(sec=>{
+let top=window.scrollY;
+let offset=sec.offsetTop-400;
+
+if(top>offset){
+sec.classList.add("show");
+}
+});
+});
+
+/* WHATSAPP */
+function sendToWhatsApp(){
+let name=document.getElementById("name").value;
+let phone=document.getElementById("phone").value;
+let problem=document.getElementById("problem").value;
+
+let msg = `Hello,%0AName: ${name}%0APhone: ${phone}%0AProblem: ${problem}`;
+
+window.open(`https://wa.me/917020084215?text=${msg}`);
+}
+
+/* PARTICLES */
+const canvas=document.getElementById("bg");
+const ctx=canvas.getContext("2d");
+
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let particles=[];
+
+for(let i=0;i<100;i++){
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2,
+dx:(Math.random()-0.5),
+dy:(Math.random()-0.5)
+});
+}
+
+function animate(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+particles.forEach(p=>{
+p.x+=p.dx;
+p.y+=p.dy;
+
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+ctx.fillStyle="rgba(0,198,255,0.7)";
+ctx.fill();
+});
+
+requestAnimationFrame(animate);
+}
+
+animate();
+
+</script>
+
+</body>
+</html>
